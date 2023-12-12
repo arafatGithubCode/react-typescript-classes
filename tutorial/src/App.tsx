@@ -1,9 +1,14 @@
-import User from "./components/User";
+import Button from "./components/Button";
+import Post from "./components/Post";
+
+import "./app.css";
 
 const App = () => {
   return (
     <div>
-      <User status="error" />
+      <h3>Children props</h3>
+      <Button>Click me</Button>
+      <Post />
     </div>
   );
 };
