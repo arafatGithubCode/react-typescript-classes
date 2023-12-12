@@ -1,31 +1,36 @@
-type userProps = {
-  users: {
-    id: number;
-    name: string;
-    age: number;
-    lang: string[];
-  }[];
-};
+// type demo1 = {
+//   status: "loading";
+// };
+// type demo2 = {
+//   status: "error";
+// };
+// type demo3 = {
+//   status: "success";
+// };
+// type demo = demo1 | demo2 | demo3;
 
-const User = ({ users }: userProps) => {
+// type demo1 = {
+//   status: number;
+// }
+// type demo2 = {
+//   status: boolean;
+// }
+// type demo = demo1 | demo2;
+
+type dataFetch = {
+  status: "loading" | "error" | "success";
+};
+const User = ({ status }: dataFetch) => {
+  if (status === "loading") {
+    return <h3>Loading....</h3>;
+  } else if (status === "error") {
+    return <h3>Error: data couldn't fetch</h3>;
+  }
+
   return (
-    <div>
-      {users.map((user, id) => {
-        const { name, age, lang } = user;
-        return (
-          <div key={id} style={{ border: "1px solid red", margin: "5px" }}>
-            <h4>Name: {name}</h4>
-            <h4>Age: {age}</h4>
-            <h3>Languages: </h3>
-            {lang.map((language, index) => (
-              <ul key={index}>
-                <li>{language}</li>
-              </ul>
-            ))}
-          </div>
-        );
-      })}
-    </div>
+    <>
+      <h3>data fetching is successful</h3>
+    </>
   );
 };
 
